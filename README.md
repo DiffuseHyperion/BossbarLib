@@ -1,6 +1,24 @@
 # BossbarLib
 A simple, clean and performant bossbar library.
 
+TigerHix's original repo has been down for a long time. This is a version maintained for the arim repository.
+The dependency versioning is now:
+```xml
+<dependency>
+	<groupId>me.tigerhix.lib</groupId>
+	<artifactId>bossbar</artifactId>
+	<version>arim-1.0.2</version>
+</dependency>
+```
+
+The maven repo is now:
+```xml
+<repository>
+	<id>arim-repo</id>
+	<url>https://dl.cloudsmith.io/public/anand-beh/arim-repo/maven/</url>
+</repository>
+```
+
 Another bossbar library? Seriously?
 --------------
 Yes, there have been a lot of libraries utilizing the bossbar to display messages. However, none of them satisfies my need. BarAPI did well in pre-1.8, but not anymore in the latest versions; and the replacements I have found would either display streams of annoying smoke particles from places to places, or random flickering and disappearances that happens a lot.
@@ -25,14 +43,14 @@ How do I add it to my project?
 Simply add the following to your `pom.xml`.
 
     <repository>
-      <id>tiger-repo</id>
-      <url>http://repo.tigerhix.me/content/repositories/snapshots/</url>
+      <id>arim-repo</id>
+      <url>https://dl.cloudsmith.io/public/anand-beh/arim-repo/maven/</url>
     </repository>
 
     <dependency>
       <groupId>me.tigerhix.lib</groupId>
       <artifactId>bossbar</artifactId>
-      <version>1.0.1-SNAPSHOT</version>
+      <version>arim-1.0.2</version>
     </dependency>
 
 And, you are good to go.
