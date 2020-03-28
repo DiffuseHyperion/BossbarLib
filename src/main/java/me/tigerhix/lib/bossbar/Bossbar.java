@@ -1,9 +1,5 @@
 package me.tigerhix.lib.bossbar;
 
-import net.minecraft.server.v1_8_R3.DataWatcher;
-import net.minecraft.server.v1_8_R3.Packet;
-import org.bukkit.Location;
-
 public interface Bossbar {
 
     /**
@@ -35,42 +31,5 @@ public interface Bossbar {
      * @return this
      */
     Bossbar setPercentage(float percentage);
-
-    /**
-     * Returns the spawn packet. Only for internal purposes.
-     *
-     * @return packet
-     */
-    Packet<?> getSpawnPacket();
-
-    /**
-     * Returns the destroy packet. Only for internal purposes.
-     *
-     * @return packet
-     */
-    Packet<?> getDestroyPacket();
-
-    /**
-     * Returns the meta packet. Only for internal purposes.
-     *
-     * @param watcher data watcher
-     * @return packet
-     */
-    Packet<?> getMetaPacket(DataWatcher watcher);
-
-    /**
-     * Returns the teleport packet. Only for internal purposes.
-     *
-     * @param location location
-     * @return packet
-     */
-    Packet<?> getTeleportPacket(Location location);
-
-    /**
-     * Returns the data watcher. Only for internal purposes.
-     *
-     * @return packet
-     */
-    DataWatcher getWatcher();
 
 }
