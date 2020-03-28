@@ -13,7 +13,6 @@ public interface Bossbar {
      * Set the message. Formatting codes are automatically translated from '{@literal &}' colour codes.
      *
      * @param message message
-     * @return this
      */
     void setMessage(String message);
 
@@ -28,7 +27,6 @@ public interface Bossbar {
      * Set the amount of health in a percentage of [0~1]. 0 is the minimum value, while 1 is the maximum.
      *
      * @param percentage percentage
-     * @return this
      */
     void setPercentage(float percentage);
 

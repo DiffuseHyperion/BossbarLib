@@ -15,6 +15,7 @@ public final class Reflections {
     /**
      * Retrieve a field accessor for a specific field type and name.
      *
+     * @param <T> the type of the field
      * @param target    the target type
      * @param name      the name of the field, or NULL to ignore
      * @param fieldType a compatible field type
