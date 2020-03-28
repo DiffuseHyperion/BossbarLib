@@ -6,11 +6,35 @@
 
     <groupId>me.tigerhix.lib</groupId>
     <artifactId>bossbar</artifactId>
-    <version>arim-1.0.2</version>
+    <version>arim-2.0.1</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <universal.version>0.6.11-SNAPSHOT</universal.version>
+        <spigot.version>1.8.8-R0.1-SNAPSHOT</spigot.version>
     </properties>
+    
+    <licenses>
+		<license>
+			<name>GNU General Public License, Version 3</name>
+			<url>https://www.gnu.org/licenses/</url>
+			<distribution>repo</distribution>
+			<comments>Strong copyleft license, commonly known as the GNU GPL v3</comments>
+		</license>
+	</licenses>
+    
+    <developers>
+		<developer>
+			<id>anandbeh</id>
+			<name>Anand Beh</name>
+			<url>https://www.arim.space</url>
+			<roles>
+				<role>creator</role>
+				<role>developer</role>
+			</roles>
+			<timezone>America/New_York</timezone>
+		</developer>
+	</developers>
 
 	<distributionManagement>
 		<repository>
@@ -24,6 +48,7 @@
 	</distributionManagement>
 	
 	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -31,6 +56,30 @@
             </resource>
         </resources>
         <plugins>
+        	<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<configuration>
+					<outputDirectory>${project.build.directory}/shared-resources</outputDirectory>
+					<excludeTransitive>true</excludeTransitive>
+				</configuration>
+				<executions>
+					<execution>
+						<id>unpack-shared-resources</id>
+						<goals>
+							<goal>unpack-dependencies</goal>
+						</goals>
+						<phase>generate-resources</phase>
+						<configuration>
+							<includes>LICENSE.txt</includes>
+							<includeGroupIds>space.arim</includeGroupIds>
+							<includeArtifactIds>universal-gpl</includeArtifactIds>
+							<includeScope>provided</includeScope>
+							<includeTypes>zip</includeTypes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
         	<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.0</version>
@@ -44,13 +93,25 @@
 	
 	<dependencies>
 		<dependency>
+			<groupId>space.arim</groupId>
+			<artifactId>universal-gpl</artifactId>
+			<version>${universal.version}</version>
+			<type>zip</type>
+			<optional>true</optional>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.spigotmc</groupId>
 			<artifactId>spigot</artifactId>
-			<version>1.8.8-R0.1-SNAPSHOT</version>
+			<version>${spigot.version}</version>
 		</dependency>
 	</dependencies>
 	
 	<repositories>
+		<repository>
+			<id>arim-repo</id>
+			<url>https://dl.cloudsmith.io/public/anand-beh/arim-repo/maven/</url>
+		</repository>
         <repository>
 			<id>spigot-repo</id>
 			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
