@@ -2,9 +2,27 @@ package me.tigerhix.lib.bossbar.handler;
 
 import me.tigerhix.lib.bossbar.type.Bossbar;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 
-public interface BossbarHandler {
+/**
+ * Bossbar API main class.
+ * 
+ * @author A248
+ *
+ */
+public interface BossbarLib {
 
+	/**
+	 * Instantiates the library from a plugin instance. <br>
+	 * Programmers only need 1 library instance.
+	 * 
+	 * @param instance the plugin to use
+	 * @return the library instance
+	 */
+	static BossbarLib createFor(Plugin instance) {
+	    return new WitherBossbarHandler(instance);
+	}
+	
     /**
      * Returns the bossbar of a player. If the player does not have a bossbar, a new instance will be created and returned.
      *
