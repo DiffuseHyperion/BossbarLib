@@ -2,6 +2,7 @@ package me.tigerhix.lib.bossbar;
 
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
+import org.bukkit.entity.Player;
 
 import net.minecraft.server.v1_8_R3.DataWatcher;
 import net.minecraft.server.v1_8_R3.Packet;
@@ -18,7 +19,7 @@ public class CraftWitherBossbar extends WitherBossbar {
         super(name, location);
     }
 
-    Packet<?> getSpawnPacket() {
+    private Packet<?> getSpawnPacket() {
         wither = new BossbarWither(((CraftWorld) spawnLocation.getWorld()).getHandle());
         wither.setLocation(spawnLocation.getX(), spawnLocation.getY(), spawnLocation.getZ(), spawnLocation.getYaw(), spawnLocation.getPitch());
         wither.setInvisible(false);
@@ -32,15 +33,15 @@ public class CraftWitherBossbar extends WitherBossbar {
         return new PacketPlayOutEntityDestroy(wither.getId());
     }
 
-    Packet<?> getMetaPacket(DataWatcher watcher) {
+    private Packet<?> getMetaPacket(DataWatcher watcher) {
         return new PacketPlayOutEntityMetadata(wither.getId(), watcher, true);
     }
 
-    Packet<?> getTeleportPacket(Location location) {
+    private Packet<?> getTeleportPacket(Location location) {
         return new PacketPlayOutEntityTeleport(wither.getId(), location.getBlockX() * 32, location.getBlockY() * 32, location.getBlockZ() * 32, (byte) ((int) location.getYaw() * 256 / 360), (byte) ((int) location.getPitch() * 256 / 360), false);
     }
 
-    DataWatcher getWatcher() {
+    private DataWatcher getWatcher() {
         DataWatcher watcher = new DataWatcher(wither);
         watcher.a(0, (byte) 0x20);
         watcher.a(2, name);
@@ -51,6 +52,16 @@ public class CraftWitherBossbar extends WitherBossbar {
         watcher.a(10, name);
         watcher.a(11, (byte) 1);
         return watcher;
+    }
+    
+    void update(Player player) {
+    	if (!isSpawned()) {
+            setSpawned(true);
+            setSpawnLocation(player.getLocation().add(player.getEyeLocation().getDirection().multiply(20)));
+            NMS.sendPacket(player, getSpawnPacket());
+        }
+        NMS.sendPacket(player, getMetaPacket(getWatcher()));
+        NMS.sendPacket(player, getTeleportPacket(player.getLocation().add(player.getEyeLocation().getDirection().multiply(20))));
     }
 
 }

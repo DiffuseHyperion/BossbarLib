@@ -13,13 +13,28 @@ public interface BossbarLib {
 
 	/**
 	 * Instantiates the library from a plugin instance. <br>
-	 * Programmers only need 1 library instance.
+	 * Programmers only need 1 library instance. <br>
+	 * <br>
+	 * <code>20L</code> is used as the interval between automatic bossbar updates. <br>
+	 * To specify this interval see {@link #createFor(Plugin, long)}.
 	 * 
 	 * @param instance the plugin to use
-	 * @return the library instance
+	 * @return a library instance
 	 */
 	static BossbarLib createFor(Plugin instance) {
-	    return new WitherBossbarHandler(instance);
+	    return createFor(instance, 20L);
+	}
+	
+	/**
+	 * Same as {@link #createFor(Plugin)} but allows the programmer
+	 * to specify a delay interval explicitly.
+	 * 
+	 * @param instance the plugin to use
+	 * @param delayInterval the delay interval in milliseconds
+	 * @return a library instance
+	 */
+	static BossbarLib createFor(Plugin instance, long delayInterval) {
+		return new WitherBossbarHandler(instance, delayInterval);
 	}
 	
     /**
@@ -37,14 +52,6 @@ public interface BossbarLib {
      * @return availability of bossbar
      */
     boolean hasBossbar(Player player);
-
-    /**
-     * Send the bossbar to the player. If the player does not have a bossbar, no action will be performed.
-     * You do not need to call this method as the implementation automatically updates the bossbar when it is changed.
-     *
-     * @param player player
-     */
-    void updateBossbar(Player player);
 
     /**
      * Clear and remove the bossbar of the player.

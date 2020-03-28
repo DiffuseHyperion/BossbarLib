@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public final class WitherBossbarHandler implements BossbarLib {
+class WitherBossbarHandler implements BossbarLib {
 
     static {
         NMS.registerCustomEntity("WitherBoss", BossbarWither.class, 64);
@@ -17,16 +17,23 @@ public final class WitherBossbarHandler implements BossbarLib {
     private final Plugin plugin;
     private final Map<UUID, CraftWitherBossbar> spawnedWithers = new HashMap<>();
 
-    public WitherBossbarHandler(Plugin plugin) {
+    WitherBossbarHandler(Plugin plugin, long delayInterval) {
         this.plugin = plugin;
         plugin.getServer().getPluginManager().registerEvents(new BossbarListener(this), plugin);
 		plugin.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> plugin.getServer().getOnlinePlayers()
-				.forEach(this::teleport), 0L, 20L);
+				.forEach(this::teleport), 0L, delayInterval);
     }
 
     void teleport(final Player player) {
         if (hasBossbar(player)) {
         	 plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, () -> updateBossbar(player), 2L);
+        }
+    }
+
+	private void updateBossbar(Player player) {
+        CraftWitherBossbar bossbar = spawnedWithers.get(player.getUniqueId());
+        if (bossbar != null) {
+        	bossbar.update(player);
         }
     }
 
@@ -54,21 +61,6 @@ public final class WitherBossbarHandler implements BossbarLib {
     @Override
 	public boolean hasBossbar(Player player) {
         return spawnedWithers.containsKey(player.getUniqueId());
-    }
-
-    @Override
-	public void updateBossbar(Player player) {
-        CraftWitherBossbar bossbar = spawnedWithers.get(player.getUniqueId());
-        if (bossbar == null) {
-            return;
-        }
-        if (!bossbar.isSpawned()) {
-            bossbar.setSpawned(true);
-            bossbar.setSpawnLocation(player.getLocation().add(player.getEyeLocation().getDirection().multiply(20)));
-            NMS.sendPacket(player, bossbar.getSpawnPacket());
-        }
-        NMS.sendPacket(player, bossbar.getMetaPacket(bossbar.getWatcher()));
-        NMS.sendPacket(player, bossbar.getTeleportPacket(player.getLocation().add(player.getEyeLocation().getDirection().multiply(20))));
     }
 
 }
