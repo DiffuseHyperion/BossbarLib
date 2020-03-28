@@ -13,7 +13,7 @@ public class CraftWitherBossbar extends WitherBossbar {
     }
 
     @Override
-    public Packet getSpawnPacket() {
+    public Packet<?> getSpawnPacket() {
         wither = new BossbarWither(((CraftWorld) spawnLocation.getWorld()).getHandle());
         wither.setLocation(spawnLocation.getX(), spawnLocation.getY(), spawnLocation.getZ(), spawnLocation.getYaw(), spawnLocation.getPitch());
         wither.setInvisible(false);
@@ -23,18 +23,18 @@ public class CraftWitherBossbar extends WitherBossbar {
     }
 
     @Override
-    public Packet getDestroyPacket() {
+    public Packet<?> getDestroyPacket() {
         if (wither == null) return null;
         return new PacketPlayOutEntityDestroy(wither.getId());
     }
 
     @Override
-    public Packet getMetaPacket(DataWatcher watcher) {
+    public Packet<?> getMetaPacket(DataWatcher watcher) {
         return new PacketPlayOutEntityMetadata(wither.getId(), watcher, true);
     }
 
     @Override
-    public Packet getTeleportPacket(Location location) {
+    public Packet<?> getTeleportPacket(Location location) {
         return new PacketPlayOutEntityTeleport(wither.getId(), location.getBlockX() * 32, location.getBlockY() * 32, location.getBlockZ() * 32, (byte) ((int) location.getYaw() * 256 / 360), (byte) ((int) location.getPitch() * 256 / 360), false);
     }
 
