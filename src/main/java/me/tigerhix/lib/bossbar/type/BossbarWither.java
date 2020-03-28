@@ -18,7 +18,8 @@ public final class BossbarWither extends EntityMonster implements IRangedEntity 
         this.b_ = 50;
     }
 
-    protected void h() {
+    @Override
+	protected void h() {
         super.h();
         this.datawatcher.a(17, 0);
         this.datawatcher.a(18, 0);
@@ -26,29 +27,35 @@ public final class BossbarWither extends EntityMonster implements IRangedEntity 
         this.datawatcher.a(20, 0);
     }
 
-    public void b(NBTTagCompound nbttagcompound) {
+    @Override
+	public void b(NBTTagCompound nbttagcompound) {
         super.b(nbttagcompound);
         nbttagcompound.setInt("Invul", this.cl());
     }
 
-    public void a(NBTTagCompound nbttagcompound) {
+    @Override
+	public void a(NBTTagCompound nbttagcompound) {
         super.a(nbttagcompound);
         this.r(nbttagcompound.getInt("Invul"));
     }
 
-    protected String z() {
+    @Override
+	protected String z() {
         return "mob.wither.idle";
     }
 
-    protected String bo() {
+    @Override
+	protected String bo() {
         return "mob.wither.hurt";
     }
 
-    protected String bp() {
+    @Override
+	protected String bp() {
         return "mob.wither.death";
     }
 
-    public void m() {
+    @Override
+	public void m() {
         this.motY *= 0.6000000238418579D;
         double d0;
         double d1;
@@ -66,7 +73,7 @@ public final class BossbarWither extends EntityMonster implements IRangedEntity 
                 d0 = i.locZ - this.locZ;
                 d1 = d3 * d3 + d0 * d0;
                 if (d1 > 9.0D) {
-                    d2 = (double) MathHelper.sqrt(d1);
+                    d2 = MathHelper.sqrt(d1);
                     this.motX += (d3 / d2 * 0.5D - this.motX) * 0.6000000238418579D;
                     this.motZ += (d0 / d2 * 0.5D - this.motZ) * 0.6000000238418579D;
                 }
@@ -93,9 +100,9 @@ public final class BossbarWither extends EntityMonster implements IRangedEntity 
                 d1 = this.u(var22 + 1);
                 d2 = this.v(var22 + 1);
                 d8 = flag.locX - d0;
-                d9 = flag.locY + (double) flag.getHeadHeight() - d1;
+                d9 = flag.locY + flag.getHeadHeight() - d1;
                 d10 = flag.locZ - d2;
-                double d7 = (double) MathHelper.sqrt(d8 * d8 + d10 * d10);
+                double d7 = MathHelper.sqrt(d8 * d8 + d10 * d10);
                 float f = (float) (MathHelper.b(d10, d8) * 180.0D / 3.1415927410125732D) - 90.0F;
                 float f1 = (float) (-(MathHelper.b(d9, d7) * 180.0D / 3.1415927410125732D));
                 this.a[var22] = this.b(this.a[var22], f1, 40.0F);
@@ -106,7 +113,8 @@ public final class BossbarWither extends EntityMonster implements IRangedEntity 
         }
     }
 
-    protected void E() {
+    @Override
+	protected void E() {
         if (this.cl() > 0) {
             this.r(this.cl() - 1);
         } else {
@@ -124,21 +132,22 @@ public final class BossbarWither extends EntityMonster implements IRangedEntity 
         this.setHealth(this.getMaxHealth() / 3.0F);
     }
 
-    public void aA() {
+    @Override
+	public void aA() {
     }
 
-    public int br() {
+    @Override
+	public int br() {
         return 4;
     }
 
     private double t(int i) {
         if (i <= 0) {
             return this.locX;
-        } else {
-            float f = (this.aI + (float) (180 * (i - 1))) / 180.0F * 3.1415927F;
-            float f1 = MathHelper.cos(f);
-            return this.locX + (double) f1 * 1.3D;
         }
+		float f = (this.aI + 180 * (i - 1)) / 180.0F * 3.1415927F;
+		float f1 = MathHelper.cos(f);
+		return this.locX + f1 * 1.3D;
     }
 
     private double u(int i) {
@@ -148,11 +157,10 @@ public final class BossbarWither extends EntityMonster implements IRangedEntity 
     private double v(int i) {
         if (i <= 0) {
             return this.locZ;
-        } else {
-            float f = (this.aI + (float) (180 * (i - 1))) / 180.0F * 3.1415927F;
-            float f1 = MathHelper.sin(f);
-            return this.locZ + (double) f1 * 1.3D;
         }
+		float f = (this.aI + 180 * (i - 1)) / 180.0F * 3.1415927F;
+		float f1 = MathHelper.sin(f);
+		return this.locZ + f1 * 1.3D;
     }
 
     private float b(float f, float f1, float f2) {
@@ -166,27 +174,34 @@ public final class BossbarWither extends EntityMonster implements IRangedEntity 
         return f + f3;
     }
 
-    public void a(EntityLiving entityliving, float f) {
+    @Override
+	public void a(EntityLiving entityliving, float f) {
     }
 
-    public boolean damageEntity(DamageSource damagesource, float f) {
+    @Override
+	public boolean damageEntity(DamageSource damagesource, float f) {
         return false;
     }
 
-    protected void dropDeathLoot(boolean flag, int i) {
+    @Override
+	protected void dropDeathLoot(boolean flag, int i) {
     }
 
-    protected void D() {
+    @Override
+	protected void D() {
         this.ticksFarFromPlayer = 0;
     }
 
-    public void e(float f, float f1) {
+    @Override
+	public void e(float f, float f1) {
     }
 
-    public void addEffect(MobEffect mobeffect) {
+    @Override
+	public void addEffect(MobEffect mobeffect) {
     }
 
-    protected void initAttributes() {
+    @Override
+	protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(GenericAttributes.maxHealth).setValue(300.0D);
         this.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(0.6000000238418579D);
@@ -213,11 +228,13 @@ public final class BossbarWither extends EntityMonster implements IRangedEntity 
         return this.getHealth() <= this.getMaxHealth() / 2.0F;
     }
 
-    public EnumMonsterType getMonsterType() {
+    @Override
+	public EnumMonsterType getMonsterType() {
         return EnumMonsterType.UNDEAD;
     }
 
-    public void mount(Entity entity) {
+    @Override
+	public void mount(Entity entity) {
         this.vehicle = null;
     }
 
