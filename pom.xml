@@ -6,7 +6,7 @@
 
     <groupId>me.tigerhix.lib</groupId>
     <artifactId>bossbar</artifactId>
-    <version>arim-2.0.1</version>
+    <version>arim-2.0.2</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
