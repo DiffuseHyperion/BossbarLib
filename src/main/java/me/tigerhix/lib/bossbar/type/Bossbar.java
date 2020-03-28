@@ -41,14 +41,14 @@ public interface Bossbar {
      *
      * @return packet
      */
-    Packet getSpawnPacket();
+    Packet<?> getSpawnPacket();
 
     /**
      * Returns the destroy packet. Only for internal purposes.
      *
      * @return packet
      */
-    Packet getDestroyPacket();
+    Packet<?> getDestroyPacket();
 
     /**
      * Returns the meta packet. Only for internal purposes.
@@ -56,7 +56,7 @@ public interface Bossbar {
      * @param watcher data watcher
      * @return packet
      */
-    Packet getMetaPacket(DataWatcher watcher);
+    Packet<?> getMetaPacket(DataWatcher watcher);
 
     /**
      * Returns the teleport packet. Only for internal purposes.
@@ -64,7 +64,7 @@ public interface Bossbar {
      * @param location location
      * @return packet
      */
-    Packet getTeleportPacket(Location location);
+    Packet<?> getTeleportPacket(Location location);
 
     /**
      * Returns the data watcher. Only for internal purposes.
