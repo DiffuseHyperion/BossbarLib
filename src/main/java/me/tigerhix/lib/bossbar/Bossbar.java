@@ -15,7 +15,7 @@ public interface Bossbar {
      * @param message message
      * @return this
      */
-    Bossbar setMessage(String message);
+    void setMessage(String message);
 
     /**
      * Returns the amount of health in a percentage of [0~1]. 0 is the minimum value, while 1 is the maximum.
@@ -30,6 +30,6 @@ public interface Bossbar {
      * @param percentage percentage
      * @return this
      */
-    Bossbar setPercentage(float percentage);
+    void setPercentage(float percentage);
 
 }

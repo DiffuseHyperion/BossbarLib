@@ -15,7 +15,7 @@ public final class WitherBossbarHandler implements BossbarLib {
     }
 
     private final Plugin plugin;
-    private final Map<UUID, WitherBossbar> spawnedWithers = new HashMap<>();
+    private final Map<UUID, CraftWitherBossbar> spawnedWithers = new HashMap<>();
 
     public WitherBossbarHandler(Plugin plugin) {
         this.plugin = plugin;
@@ -30,17 +30,16 @@ public final class WitherBossbarHandler implements BossbarLib {
         }
     }
 
-    private WitherBossbar newBossbar() {
-        return newBossbar(ChatColor.BOLD + "", 1f);
-    }
-
-    private WitherBossbar newBossbar(String message, float percentage) {
-        return new CraftWitherBossbar(message, null).setMessage(message).setPercentage(percentage);
+    private CraftWitherBossbar newBossbar(String message, float percentage) {
+    	CraftWitherBossbar bossbar = new CraftWitherBossbar(message, null);
+    	bossbar.setMessage(message);
+    	bossbar.setPercentage(percentage);
+        return bossbar;
     }
 
     @Override
 	public void clearBossbar(Player player) {
-        WitherBossbar bossbar = spawnedWithers.remove(player.getUniqueId());
+        CraftWitherBossbar bossbar = spawnedWithers.remove(player.getUniqueId());
         if (bossbar == null || !bossbar.isSpawned() || bossbar.getDestroyPacket() == null) {
             return;
         }
@@ -49,7 +48,7 @@ public final class WitherBossbarHandler implements BossbarLib {
 
     @Override
 	public WitherBossbar getBossbar(Player player) {
-    	return spawnedWithers.computeIfAbsent(player.getUniqueId(), (uuid) -> newBossbar());
+    	return spawnedWithers.computeIfAbsent(player.getUniqueId(), (uuid) -> newBossbar(ChatColor.BOLD + "", 1f));
     }
 
     @Override
@@ -59,7 +58,7 @@ public final class WitherBossbarHandler implements BossbarLib {
 
     @Override
 	public void updateBossbar(Player player) {
-        WitherBossbar bossbar = spawnedWithers.get(player.getUniqueId());
+        CraftWitherBossbar bossbar = spawnedWithers.get(player.getUniqueId());
         if (bossbar == null) {
             return;
         }

@@ -24,9 +24,8 @@ public abstract class WitherBossbar implements Bossbar {
     }
 
     @Override
-    public WitherBossbar setMessage(String message) {
+    public void setMessage(String message) {
         this.name = message;
-        return this;
     }
 
     @Override
@@ -35,10 +34,9 @@ public abstract class WitherBossbar implements Bossbar {
     }
 
     @Override
-    public WitherBossbar setPercentage(float percentage) {
+    public void setPercentage(float percentage) {
         percentage = Maths.clamp(percentage, 0f, 1f);
         health = percentage * MAX_HEALTH;
-        return this;
     }
 
     public boolean isSpawned() {

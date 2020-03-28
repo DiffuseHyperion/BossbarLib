@@ -1,8 +1,14 @@
 package me.tigerhix.lib.bossbar;
 
-import net.minecraft.server.v1_8_R3.*;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
+
+import net.minecraft.server.v1_8_R3.DataWatcher;
+import net.minecraft.server.v1_8_R3.Packet;
+import net.minecraft.server.v1_8_R3.PacketPlayOutEntityDestroy;
+import net.minecraft.server.v1_8_R3.PacketPlayOutEntityMetadata;
+import net.minecraft.server.v1_8_R3.PacketPlayOutEntityTeleport;
+import net.minecraft.server.v1_8_R3.PacketPlayOutSpawnEntityLiving;
 
 public class CraftWitherBossbar extends WitherBossbar {
 
@@ -12,8 +18,7 @@ public class CraftWitherBossbar extends WitherBossbar {
         super(name, location);
     }
 
-    @Override
-    public Packet<?> getSpawnPacket() {
+    Packet<?> getSpawnPacket() {
         wither = new BossbarWither(((CraftWorld) spawnLocation.getWorld()).getHandle());
         wither.setLocation(spawnLocation.getX(), spawnLocation.getY(), spawnLocation.getZ(), spawnLocation.getYaw(), spawnLocation.getPitch());
         wither.setInvisible(false);
@@ -22,24 +27,20 @@ public class CraftWitherBossbar extends WitherBossbar {
         return new PacketPlayOutSpawnEntityLiving(wither);
     }
 
-    @Override
-    public Packet<?> getDestroyPacket() {
+    Packet<?> getDestroyPacket() {
         if (wither == null) return null;
         return new PacketPlayOutEntityDestroy(wither.getId());
     }
 
-    @Override
-    public Packet<?> getMetaPacket(DataWatcher watcher) {
+    Packet<?> getMetaPacket(DataWatcher watcher) {
         return new PacketPlayOutEntityMetadata(wither.getId(), watcher, true);
     }
 
-    @Override
-    public Packet<?> getTeleportPacket(Location location) {
+    Packet<?> getTeleportPacket(Location location) {
         return new PacketPlayOutEntityTeleport(wither.getId(), location.getBlockX() * 32, location.getBlockY() * 32, location.getBlockZ() * 32, (byte) ((int) location.getYaw() * 256 / 360), (byte) ((int) location.getPitch() * 256 / 360), false);
     }
 
-    @Override
-    public DataWatcher getWatcher() {
+    DataWatcher getWatcher() {
         DataWatcher watcher = new DataWatcher(wither);
         watcher.a(0, (byte) 0x20);
         watcher.a(2, name);
