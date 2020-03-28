@@ -1,5 +1,6 @@
 package me.tigerhix.lib.bossbar;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 
 public abstract class WitherBossbar implements Bossbar {
@@ -25,7 +26,7 @@ public abstract class WitherBossbar implements Bossbar {
 
     @Override
     public void setMessage(String message) {
-        this.name = message;
+        this.name = ChatColor.translateAlternateColorCodes('&', message);
     }
 
     @Override

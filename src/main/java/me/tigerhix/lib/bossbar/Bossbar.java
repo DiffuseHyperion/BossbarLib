@@ -3,14 +3,14 @@ package me.tigerhix.lib.bossbar;
 public interface Bossbar {
 
     /**
-     * Returns the message.
+     * Returns the message. The message won't have any '§' colour codes because they will have been replaced.
      *
      * @return message
      */
     String getMessage();
 
     /**
-     * Set the message.
+     * Set the message. Formatting codes are automatically translated from '{@literal &}' colour codes.
      *
      * @param message message
      * @return this
