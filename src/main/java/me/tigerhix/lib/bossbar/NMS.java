@@ -12,7 +12,7 @@ public final class NMS {
     private NMS() {
     }
 
-    public static void sendPacket(Player player, Packet<?>... packets) {
+    static void sendPacket(Player player, Packet<?>... packets) {
         if (!(player instanceof CraftPlayer)) {
             player = player.getPlayer();
             if (!(player instanceof CraftPlayer)) {
@@ -23,7 +23,7 @@ public final class NMS {
     }
 
     @SuppressWarnings("unchecked")
-	public static void registerCustomEntity(String entityName, Class<?> entityClass, int entityId) {
+	static void registerCustomEntity(String entityName, Class<?> entityClass, int entityId) {
         Reflections.getField(EntityTypes.class, "c", Map.class).get(null).put(entityName, entityClass);
         Reflections.getField(EntityTypes.class, "d", Map.class).get(null).put(entityClass, entityName);
         Reflections.getField(EntityTypes.class, "e", Map.class).get(null).put(entityId, entityClass);
