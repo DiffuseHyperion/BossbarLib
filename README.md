@@ -67,9 +67,10 @@ BossbarLib barlib = BossbarLib.createFor(plugin, delayInterval);
 <dependency>
 	<groupId>me.tigerhix.lib</groupId>
 	<artifactId>bossbar</artifactId>
-	<version>arim-2.0.1</version>
+	<version>${INSERT_LATEST_VERSION}</version>
 </dependency>
 ```
+You may find the latest version in the pom.xml of this project.
 
 ### Maven repo
 
