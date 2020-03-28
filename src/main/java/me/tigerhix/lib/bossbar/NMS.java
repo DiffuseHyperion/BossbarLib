@@ -1,4 +1,4 @@
-package me.tigerhix.lib.bossbar.common;
+package me.tigerhix.lib.bossbar;
 
 import net.minecraft.server.v1_8_R3.EntityTypes;
 import net.minecraft.server.v1_8_R3.Packet;

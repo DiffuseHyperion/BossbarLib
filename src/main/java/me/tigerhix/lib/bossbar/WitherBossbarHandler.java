@@ -1,9 +1,5 @@
-package me.tigerhix.lib.bossbar.handler;
+package me.tigerhix.lib.bossbar;
 
-import me.tigerhix.lib.bossbar.common.NMS;
-import me.tigerhix.lib.bossbar.type.BossbarWither;
-import me.tigerhix.lib.bossbar.type.CraftWitherBossbar;
-import me.tigerhix.lib.bossbar.type.WitherBossbar;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;

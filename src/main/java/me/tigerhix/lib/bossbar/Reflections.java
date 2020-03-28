@@ -1,4 +1,4 @@
-package me.tigerhix.lib.bossbar.common;
+package me.tigerhix.lib.bossbar;
 
 import java.lang.reflect.Field;
 

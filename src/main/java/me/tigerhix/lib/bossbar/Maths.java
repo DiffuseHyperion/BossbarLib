@@ -1,4 +1,4 @@
-package me.tigerhix.lib.bossbar.common;
+package me.tigerhix.lib.bossbar;
 
 public final class Maths {
 

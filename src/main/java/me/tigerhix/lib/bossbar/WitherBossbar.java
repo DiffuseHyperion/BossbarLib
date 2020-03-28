@@ -1,6 +1,5 @@
-package me.tigerhix.lib.bossbar.type;
+package me.tigerhix.lib.bossbar;
 
-import me.tigerhix.lib.bossbar.common.Maths;
 import org.bukkit.Location;
 
 public abstract class WitherBossbar implements Bossbar {

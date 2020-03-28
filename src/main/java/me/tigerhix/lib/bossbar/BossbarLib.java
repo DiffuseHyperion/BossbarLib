@@ -1,6 +1,5 @@
-package me.tigerhix.lib.bossbar.handler;
+package me.tigerhix.lib.bossbar;
 
-import me.tigerhix.lib.bossbar.type.Bossbar;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 

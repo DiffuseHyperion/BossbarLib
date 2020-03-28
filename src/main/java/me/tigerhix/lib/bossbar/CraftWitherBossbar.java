@@ -1,4 +1,4 @@
-package me.tigerhix.lib.bossbar.type;
+package me.tigerhix.lib.bossbar;
 
 import net.minecraft.server.v1_8_R3.*;
 import org.bukkit.Location;
