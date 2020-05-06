@@ -10,7 +10,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <universal.version>0.6.11-SNAPSHOT</universal.version>
+        <universal.version>0.9.0-SNAPSHOT</universal.version>
         <spigot.version>1.8.8-R0.1-SNAPSHOT</spigot.version>
     </properties>
     
@@ -131,6 +131,7 @@
 			<groupId>org.spigotmc</groupId>
 			<artifactId>spigot</artifactId>
 			<version>${spigot.version}</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 	
