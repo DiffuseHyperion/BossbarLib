@@ -6,11 +6,11 @@
 
     <groupId>me.tigerhix.lib</groupId>
     <artifactId>bossbar</artifactId>
-    <version>arim-2.0.3</version>
+    <version>arim-2.0.4</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <universal.version>0.9.0-SNAPSHOT</universal.version>
+        <universal.version>0.9.1-SNAPSHOT</universal.version>
         <spigot.version>1.8.8-R0.1-SNAPSHOT</spigot.version>
     </properties>
     
@@ -72,7 +72,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.1.1</version>
+				<version>3.2.0</version>
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
@@ -82,6 +82,9 @@
 						</goals>
 					</execution>
 				</executions>
+				<configuration>
+					<source>8</source>
+				</configuration>
 			</plugin>
         	<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
