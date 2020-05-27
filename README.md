@@ -77,7 +77,7 @@ You may find the latest version in the pom.xml of this project.
 ```xml
 <repository>
 	<id>arim-repo</id>
-	<url>https://dl.cloudsmith.io/public/anand-beh/arim-repo/maven/</url>
+	<url>https://www.arim.space/maven/</url>
 </repository>
 ```
 
