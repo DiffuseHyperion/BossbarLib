@@ -6,7 +6,7 @@
 
     <groupId>me.tigerhix.lib</groupId>
     <artifactId>bossbar</artifactId>
-    <version>arim-2.0.4</version>
+    <version>diffuse-2.0.4</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -36,100 +36,43 @@
 		</developer>
 	</developers>
 
-	<distributionManagement>
-		<repository>
-			<id>arim-repo</id>
-			<url>https://maven.cloudsmith.io/anand-beh/arim-repo/</url>
-		</repository>
-		<snapshotRepository>
-			<id>arim-repo</id>
-			<url>https://maven.cloudsmith.io/anand-beh/arim-repo/</url>
-		</snapshotRepository>
-	</distributionManagement>
-	
 	<build>
-		<sourceDirectory>src/main/java</sourceDirectory>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
-        <plugins>
-        	<plugin>
+		<plugins>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>3.2.0</version>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.2.0</version>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.2.4</version>
 				<executions>
 					<execution>
-						<id>attach-javadocs</id>
+						<phase>package</phase>
 						<goals>
-							<goal>javadoc</goal>
-							<goal>jar</goal>
+							<goal>shade</goal>
 						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<source>8</source>
-				</configuration>
-			</plugin>
-        	<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<configuration>
-					<outputDirectory>${project.build.directory}/shared-resources</outputDirectory>
-					<excludeTransitive>true</excludeTransitive>
-				</configuration>
-				<executions>
-					<execution>
-						<id>unpack-shared-resources</id>
-						<goals>
-							<goal>unpack-dependencies</goal>
-						</goals>
-						<phase>generate-resources</phase>
 						<configuration>
-							<includes>LICENSE.txt</includes>
-							<includeGroupIds>space.arim</includeGroupIds>
-							<includeArtifactIds>universal-gpl</includeArtifactIds>
-							<includeScope>provided</includeScope>
-							<includeTypes>zip</includeTypes>
+							<createDependencyReducedPom>false</createDependencyReducedPom>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
-        	<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.0</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-        	</plugin>
-        </plugins>
-    </build>
+		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+	</build>
 	
 	<dependencies>
-		<dependency>
-			<groupId>space.arim</groupId>
-			<artifactId>universal-gpl</artifactId>
-			<version>${universal.version}</version>
-			<type>zip</type>
-			<optional>true</optional>
-			<scope>provided</scope>
-		</dependency>
 		<dependency>
 			<groupId>org.spigotmc</groupId>
 			<artifactId>spigot</artifactId>
@@ -139,10 +82,6 @@
 	</dependencies>
 	
 	<repositories>
-		<repository>
-			<id>arim-repo</id>
-			<url>https://www.arim.space/maven/</url>
-		</repository>
         <repository>
 			<id>spigot-repo</id>
 			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
