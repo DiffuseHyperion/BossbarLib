@@ -37,7 +37,11 @@ public abstract class WitherBossbar implements Bossbar {
     @Override
     public void setPercentage(float percentage) {
         percentage = Maths.clamp(percentage, 0f, 1f);
-        health = percentage * MAX_HEALTH;
+        if (percentage * MAX_HEALTH == 0) {
+            health = 1;
+        } else {
+            health = percentage * MAX_HEALTH;
+        }
     }
 
     public boolean isSpawned() {
