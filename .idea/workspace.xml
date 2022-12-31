@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8774ba49-3090-42fd-abf6-8d454f7550a6" name="Changes" comment="didnt like the plugin name troll" />
+    <list default="true" id="8774ba49-3090-42fd-abf6-8d454f7550a6" name="Changes" comment="prevent setting health to 0, since this will cause the wither to die (i think)">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BossbarLib.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BossbarLib.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/me/tigerhix/lib/BossbarLib/diffuse-2.0.5/BossbarLib-diffuse-2.0.5.pom" beforeDir="false" afterPath="$PROJECT_DIR$/me/tigerhix/lib/BossbarLib/diffuse-2.0.5/BossbarLib-diffuse-2.0.5.pom" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/me/tigerhix/lib/BossbarLib/diffuse-2.0.5/BossbarLib-diffuse-2.0.5.pom.md5" beforeDir="false" afterPath="$PROJECT_DIR$/me/tigerhix/lib/BossbarLib/diffuse-2.0.5/BossbarLib-diffuse-2.0.5.pom.md5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/me/tigerhix/lib/BossbarLib/diffuse-2.0.5/BossbarLib-diffuse-2.0.5.pom.sha1" beforeDir="false" afterPath="$PROJECT_DIR$/me/tigerhix/lib/BossbarLib/diffuse-2.0.5/BossbarLib-diffuse-2.0.5.pom.sha1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/me/tigerhix/lib/BossbarLib/maven-metadata-local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/me/tigerhix/lib/BossbarLib/maven-metadata-local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/me/tigerhix/lib/BossbarLib/maven-metadata-local.xml.md5" beforeDir="false" afterPath="$PROJECT_DIR$/me/tigerhix/lib/BossbarLib/maven-metadata-local.xml.md5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/me/tigerhix/lib/BossbarLib/maven-metadata-local.xml.sha1" beforeDir="false" afterPath="$PROJECT_DIR$/me/tigerhix/lib/BossbarLib/maven-metadata-local.xml.sha1" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BossbarLib.iml" filepath="$PROJECT_DIR$/BossbarLib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/bossbar.iml" filepath="$PROJECT_DIR$/bossbar.iml" />
     </modules>
   </component>
 </project>
