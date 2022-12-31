@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.tigerhix.lib</groupId>
-    <artifactId>bossbar</artifactId>
+    <artifactId>BossbarLib</artifactId>
     <version>diffuse-2.0.5</version>
 
     <properties>
