@@ -18,7 +18,7 @@ Yes, there have been a lot of libraries utilizing the bossbar to display message
 * Clean, object-oriented approach that a ten-year-old could understand.
 * Can be used as a standalone plugin, or be shaded into your project.
 
-### Information about this fork
+### Information about the previous fork
 
 This version of BossbarLib is maintained and updated for the arim repository. It started because
 TigerHix's repo shutdown a while ago, and was causing some headaches for dependent plugin build processes.
@@ -26,6 +26,12 @@ TigerHix's repo shutdown a while ago, and was causing some headaches for depende
 The original BossbarLib contained some API mistakes. It was based on a singleton plugin
 instance, permitting only 1 plugin to use it at a time. Also, there were exposed NMS internals.
 for instance.
+
+### Information about this fork
+
+This version adds an additional value to the wither's DataWatcher, which causes its shield to be invisible.
+
+Particles will still appear, theres not much that can be done about this since its hardcoded.
 
 ## The BossbarLib API
 
@@ -135,6 +141,5 @@ instead.
 
 **Is BossbarLib perfect?**
 Unfortunately, not quite. Here are some worth-mentioning problems:
-* Wither shields when the health is under 50%. This is completely client-side, and there are no ways to avoid it. There are some workarounds, though: you can make a custom resource pack with `entity/wither/wither.png`, `entity/wither/wither_armor.png`, ``entity/wither/invulnerable.png` set to a blank, transparent image, so that players wouldn't be able to see the goddamn wither even though it is rendered. The second workaround is easier: just never set the health of a bossbar under 50%. If you want to use the bossbar as a timer, make the message to indicate the time left instead. 
 * Version dependent (currently, it supports Spigot 1.8.8 only). Bad news, the default implementation of BossbarLib optimizes the wither entity by extending `EntityMonster`, a class in NMS package - which means you have to update BossbarLib every time when there is a Minecraft version update. The good news is, unless Mojang have developed new glitches for the bossbar again, making BossbarLib up-to-date usually wouldn't take so long.
 
