@@ -6,7 +6,7 @@
 
     <groupId>me.tigerhix.BossbarLib</groupId>
     <artifactId>BossbarLib</artifactId>
-    <version>diffuse-2.0.5</version>
+    <version>diffuse-2.0.6</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
