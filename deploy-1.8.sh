@@ -1,1 +1,1 @@
-mvn install:install-file -DgroupId=me.tigerhix.lib -DartifactId=BossbarLib -Dversion=diffuse-2.0.5 -Dfile=target/BossbarLib-diffuse-2.0.5.jar -Dpackaging=jar -DpomFile=target/pom.xml -DlocalRepositoryPath=.  -DcreateChecksum=true
+mvn install:install-file -DgroupId=me.tigerhix.lib -DartifactId=BossbarLib -Dversion=diffuse-2.0.6 -Dfile=target/BossbarLib-diffuse-2.0.6.jar -Dpackaging=jar -DpomFile=target/pom.xml -DlocalRepositoryPath=.  -DcreateChecksum=true
