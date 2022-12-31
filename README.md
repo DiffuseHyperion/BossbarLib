@@ -1,3 +1,4 @@
+
 # BossbarLib
 A simple, clean and performant bossbar library.
 
@@ -35,9 +36,37 @@ Particles will still appear, theres not much that can be done about this since i
 
 ## The BossbarLib API
 
-The new API permits multiple instances. It is used in production, so you can be more sure it is stable.
+## Dependencies
+<table>
+<thead>
+  <tr>
+    <th class="tg-0pky">Project Ownership</th>
+    <th class="tg-0pky">Diffuse's</th>
+    <th class="tg-0pky">Arims</th>
+    <th class="tg-0pky">Tigerhix's</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky">Dependency</td>
+    <td class="tg-0pky">&lt;dependency&gt;<br>	&lt;groupId&gt;me.tigerhix.lib&lt;/groupId&gt;<br>	&lt;artifactId&gt;bossbar&lt;/artifactId&gt;<br>	&lt;version&gt;${INSERT_LATEST_VERSION}&lt;/version&gt;<br>&lt;/dependency&gt;</td>
+    <td class="tg-0pky">&lt;dependency&gt;<br>	&lt;groupId&gt;me.tigerhix.lib&lt;/groupId&gt;<br>	&lt;artifactId&gt;bossbar&lt;/artifactId&gt;<br>	&lt;version&gt;arim-2.0.4&lt;/version&gt;<br>&lt;/dependency&gt;</td>
+    <td class="tg-0pky">&lt;dependency&gt;<br>	&lt;groupId&gt;me.tigerhix.lib&lt;/groupId&gt;<br>	&lt;artifactId&gt;bossbar&lt;/artifactId&gt;<br>	&lt;version&gt;arim-1.0.2&lt;/version&gt;<br>&lt;/dependency&gt;</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Repository</td>
+    <td class="tg-0pky">&lt;repository&gt;<br>	&lt;id&gt;bossbarlib-diffuse&lt;/id&gt;<br>	&lt;url&gt;https://raw.githubusercontent.com/DiffuseHyperion/BossbarLib/repository&lt;/url&gt;<br>&lt;/repository&gt;</td>
+    <td class="tg-0pky">&lt;repository&gt;<br>	&lt;id&gt;arim-repo&lt;/id&gt;<br>	&lt;url&gt;https://www.arim.space/maven/&lt;/url&gt;<br>&lt;/repository&gt;</td>
+    <td class="tg-0pky">&lt;repository&gt;<br>	&lt;id&gt;arim-repo&lt;/id&gt;<br>	&lt;url&gt;https://www.arim.space/maven/&lt;/url&gt;<br>&lt;/repository&gt;</td>
+  </tr>
+</tbody>
+</table>
 
-### Usage
+how do u put code blocks in html lmfao
+
+You may find the latest version in the pom.xml of this project.
+
+## Usage
 
 **Getting an instance**
 For your own plugin, you only need 1 instance. (If other plugins want to use BossbarLib, they'll use their own instances).
@@ -66,45 +95,6 @@ JavaPlugin plugin = //... ;
 long delayInterval = 20L; // 20L is the default if you don't specify the delay interval
 BossbarLib barlib = BossbarLib.createFor(plugin, delayInterval);
 ```
-
-### Dependency
-
-```xml
-<dependency>
-	<groupId>me.tigerhix.lib</groupId>
-	<artifactId>bossbar</artifactId>
-	<version>${INSERT_LATEST_VERSION}</version>
-</dependency>
-```
-You may find the latest version in the pom.xml of this project.
-
-### Maven repo
-
-```xml
-<repository>
-	<id>arim-repo</id>
-	<url>https://www.arim.space/maven/</url>
-</repository>
-```
-
-## If you want to use the old API
-
-You may want to use the old BossbarLib API. It is unsupported, however, it builds and executes fine.
-
-### Maven dependency
-
-In this case, your dependency becomes:
-```xml
-<dependency>
-	<groupId>me.tigerhix.lib</groupId>
-	<artifactId>bossbar</artifactId>
-	<version>arim-1.0.2</version>
-</dependency>
-```
-
-Note the version. 1.x is for the old BossbarLib API. 2.x is for the new API.
-
-The repository is still the same as before (arim-repo).
 
 ### Documentation for original API
 
