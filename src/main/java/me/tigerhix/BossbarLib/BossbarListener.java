@@ -1,4 +1,4 @@
-package me.tigerhix.lib.bossbar;
+package me.tigerhix.BossbarLib;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;

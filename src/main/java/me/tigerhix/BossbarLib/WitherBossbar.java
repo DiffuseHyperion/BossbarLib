@@ -1,4 +1,4 @@
-package me.tigerhix.lib.bossbar;
+package me.tigerhix.BossbarLib;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;

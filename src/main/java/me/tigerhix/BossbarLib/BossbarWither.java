@@ -1,4 +1,4 @@
-package me.tigerhix.lib.bossbar;
+package me.tigerhix.BossbarLib;
 
 import net.minecraft.server.v1_8_R3.DamageSource;
 import net.minecraft.server.v1_8_R3.Entity;

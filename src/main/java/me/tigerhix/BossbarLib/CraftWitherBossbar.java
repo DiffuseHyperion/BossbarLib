@@ -1,4 +1,4 @@
-package me.tigerhix.lib.bossbar;
+package me.tigerhix.BossbarLib;
 
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
