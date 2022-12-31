@@ -18,8 +18,8 @@ import net.minecraft.server.v1_8_R3.World;
 
 public final class BossbarWither extends EntityMonster implements IRangedEntity {
 
-    private float[] a = new float[2];
-    private float[] b = new float[2];
+    private final float[] a = new float[2];
+    private final float[] b = new float[2];
 
     public BossbarWither(World world) {
         super(world);
@@ -251,5 +251,4 @@ public final class BossbarWither extends EntityMonster implements IRangedEntity 
 	public void mount(Entity entity) {
         this.vehicle = null;
     }
-
 }

@@ -51,7 +51,7 @@ public class CraftWitherBossbar extends WitherBossbar {
         watcher.a(8, (byte) 0);
         watcher.a(10, name);
         watcher.a(11, (byte) 1);
-        watcher.a(20, 932);
+        watcher.a(20, 881);
         return watcher;
     }
     
