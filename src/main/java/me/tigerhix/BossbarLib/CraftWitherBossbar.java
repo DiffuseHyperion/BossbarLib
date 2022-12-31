@@ -58,11 +58,11 @@ public class CraftWitherBossbar extends WitherBossbar {
     void update(Player player) {
     	if (!isSpawned()) {
             setSpawned(true);
-            setSpawnLocation(player.getLocation().add(player.getEyeLocation().getDirection().multiply(15)));
+            setSpawnLocation(player.getLocation().add(player.getEyeLocation().getDirection().multiply(18)));
             NMS.sendPacket(player, getSpawnPacket());
         }
         NMS.sendPacket(player, getMetaPacket(getWatcher()));
-        NMS.sendPacket(player, getTeleportPacket(player.getLocation().add(player.getEyeLocation().getDirection().multiply(15))));
+        NMS.sendPacket(player, getTeleportPacket(player.getLocation().add(player.getEyeLocation().getDirection().multiply(18))));
     }
 
 }
